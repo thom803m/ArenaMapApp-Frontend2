@@ -1,0 +1,866 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Styling til header */
+header {
+    background-color: #270645;
+    color: white;
+    padding: 10px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* For at kunne placere Menu-billedet over navbaren */
+}
+
+/* Styling til logo-linket */
+header a .logo {
+    max-width: 100px; 
+    height: auto;
+    margin-left: 250px;
+    margin-right: 100px;
+}
+
+/* Skjult billede af menuen, vises kun under 768px */
+header .menu-icon {
+    display: none; /* Skjult som standard */
+    max-width: 50px; /* Juster størrelsen af menuikonet */
+    cursor: pointer; /* Gør det klikbart */
+    position: absolute;
+    right: 10px;
+}
+
+/* Styling til luk-knap */
+#close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px; /* Juster efter behov */
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#close-btn:hover {
+    transform: scale(1.2); /* Gør knappen lidt større ved hover */
+}
+
+/* Styling til slidemenupanelet */
+#slide-menu {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Skjul menuen til højre */
+    width: 250px;
+    height: 100%;
+    background-color: #361b4f;
+    color: white;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+#slide-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+}
+
+#slide-menu ul li {
+    margin: 20px 0;
+}
+
+#slide-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px; /* Tilføj lidt polstring for klikbart område */
+    display: block; /* Gør hele området klikbart */
+    border-radius: 5px; /* Tilføj afrundede kanter */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Gør hover-effekten glidende */
+}
+
+/* Hover-effekt */
+#slide-menu ul li a:hover {
+    background-color: #4a246a; /* Mørkere lilla nuance */
+    color: #ffd700; /* Guldtekstfarve */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Tilføj en let skygge ved hover */
+}
+
+/* Når menuen er åben */
+#slide-menu.open {
+    right: 0;
+}
+
+/* Active state styling for the active button */
+.slide-dropdown-toggle.active {
+    background-color: #4a246a;  /* Same background color as the dropdown */
+    color: #ffd700;  /* Optional: Text color */
+    font-weight: bold;  /* Make the text bold to highlight the active button */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);  /* Add a light shadow for the active button */
+}
+
+/* Styling for dropdowns when active */
+.slide-dropdown-menu {
+    display: none;  /* Hide the dropdowns by default */
+    background-color: #4a246a;  /* Same background color for the dropdown */
+    padding: 10px 0;
+    list-style: none;
+    border-radius: 5px;
+}
+
+.slide-dropdown-menu li a {
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.slide-dropdown-menu li a:hover {
+    background-color: #361b4f;
+    color: #ffd700;
+}
+
+.slide-dropdown.open .slide-dropdown-menu {
+    display: block;
+}
+
+/* Styling til navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 30px;
+    gap: 0px; /* Bruger gap for let justering */
+    flex-grow: 1; /* Sørger for fleksibilitet i bredden */
+    justify-content: flex-start; /* Placer navbaren tættere på logoet */
+}
+
+/* Styling af navbarens elementer */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar ul li {
+    position: relative; 
+    margin: 0 10px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    background-color: #270645;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.navbar ul li a:hover {
+    background-color: #0056b3;
+    color: #000000;
+}
+
+/* Dropdown-menu styling */
+.dropdown-menu {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    display: none; 
+    background-color: #182A61;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    padding: 10px 0;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.dropdown-menu li a {
+    color: #000000;
+    background-color: transparent;
+    padding: 10px 20px;
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    border-radius: 0;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f4f4f4;
+    color: #000000;
+}
+
+/* Styling til body for centrering */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #182A61; /* Baggrundsfarve */
+    justify-content: center; /* Centrer horisontalt */
+    align-items: center; /* Centrer vertikalt */
+    height: 100vh; /* Gør, at body fylder hele skærmhøjden */
+    text-align: center;
+}
+
+/* Styling til sektionen */
+.order-intro {
+    margin: 30px auto;
+    max-width: 1200px;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #270645, #4a246a); /* Flot gradient baggrund */
+    color: white;
+    border-radius: 12px; /* Mere afrundede kanter */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Dybere skygge for mere dybde */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Glidende hover-effekt */
+}
+
+.order-intro:hover {
+    transform: scale(1.02); /* Lidt forstørrelse ved hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Forstærket skygge ved hover */
+}
+
+.order-intro .info {
+    margin: 0 auto;
+    max-width: 800px; /* Gør sektionen lidt smallere for bedre fokus */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3); /* Transparent overlay for tekst */
+    border-radius: 8px; /* Afrundede kanter for kontrast */
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2); /* Indre skygge for dybde */
+}
+
+.order-intro p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #f9f9f9; /* Lysere tekstfarve for bedre kontrast */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Let skygge for tekst */
+    margin-top: 10px;
+}
+
+/* Styling for mad- og drikkevarer */
+.container {
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 0 15px; /* Juster afstand til kanterne */
+}
+
+h2, h3 {
+    font-size: 2rem;
+    color: #270645;
+    margin-bottom: 20px;
+}
+
+.item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #270645; /* Ændret baggrundsfarve til #270645 */
+    color: white; /* Ændret tekstfarve til hvid */
+    transition: box-shadow 0.3s ease;
+}
+
+.item:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Større skygge ved hover */
+}
+
+.item-info {
+    flex: 1;
+    margin-right: 500px; /* Juster venstre margin for at rykke item-info længere over til venstre */
+}
+
+h3 {
+    font-size: 3rem;
+    color: white; /* Ændret tekstfarve til hvid */
+    margin-bottom: 30px;
+}
+
+h4 {
+    font-size: 1.2rem;
+    color: white; /* Ændret tekstfarve til hvid */
+    margin-bottom: 5px;
+}
+
+.price {
+    font-size: 1rem;
+    color: white; /* Ændret tekstfarve til hvid */
+}
+
+/* Knappen til plus/minus */
+.item-controls {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    padding: 8px 15px;
+    font-size: 1.5rem;
+    background-color: #270645; /* Baggrundsfarve til knapper */
+    color: white; /* Hvid tekstfarve */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4a246a; /* Ændret hover farve */
+}
+
+.item-count {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    width: 40px;
+    text-align: center;
+}
+
+.order-details {
+    margin: 30px auto;
+    max-width: 800px;
+    background-color: #270645;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-details h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ffd700; /* Guld farve */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #ffd700;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #ffd700;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-btn {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #ff6666;
+}
+
+.confirm-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+.confirm-btn:hover {
+    background-color: #66bb6a;
+}
+
+/* Styling for ordreliste */
+.order-item {
+    border: 1px solid #ddd; /* Let grå ramme */
+    border-radius: 8px; /* Afrundede hjørner */
+    padding: 15px; /* Mindre afstand omkring tekst for at få det til at passe bedre */
+    margin-bottom: 15px; /* Afstand mellem ordrene */
+    background-color: #f9f9f9; /* Lys grå baggrund */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Let skygge for at fremhæve */
+    display: flex; /* Flexbox for at placere elementerne ved siden af hinanden */
+    flex-wrap: wrap; /* Gør det muligt at bryde linjen hvis der ikke er nok plads */
+    justify-content: space-between; /* Fordeler pladsen ligeligt */
+}
+
+.order-item div {
+    flex: 1; /* Gør hver sektion fleksibel */
+    margin-right: 15px; /* Afstand mellem sektionerne */
+}
+
+.order-item div:last-child {
+    margin-right: 0; /* Fjerner margin fra den sidste sektion */
+}
+
+/* Styling for ordreliste, når der ikke er nogen ordrer */
+#order-list.empty {
+    text-align: center;
+    color: #b95151;
+    font-size: 1.2rem;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Styling til overskriften */
+h1 {
+    font-size: 2rem;
+    color: #ffd700;
+    font-weight: bold;
+}
+
+/* Styling af containeren */
+.container.mt-5 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 15px;
+    background-color: #270645;
+}
+
+/* For at arrangere ordrene vandret */
+.order-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Plads mellem elementer */
+}
+
+.order-info div {
+    flex-basis: 18%; /* Hver div får en minimum størrelse */
+    margin-bottom: 5px; /* Tilføjet lidt plads under hver div */
+}
+
+/* Handlinger til hver ordre */
+.order-actions {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.order-actions button {
+    min-width: 60px; /* Mindre bredde på knapperne */
+    font-size: 14px; /* Lidt mindre font-størrelse */
+    padding: 5px 10px; /* Mindre padding i knapperne */
+}
+
+.order-actions button:hover {
+    opacity: 0.8; /* Reduceret opacitet på hover */
+}
+
+/* Styling til fjern-knappen */
+.order-actions .btn-danger {
+    background-color: #d9534f;
+    border-color: #d9534f;
+}
+
+.order-actions .btn-danger:hover {
+    background-color: #c9302c;
+    border-color: #c12e2a;
+}
+
+/* Styling til opdater-knappen */
+.order-actions .btn-primary {
+    background-color: #0275d8;
+    border-color: #0275d8;
+}
+
+.order-actions .btn-primary:hover {
+    background-color: #025aa5;
+    border-color: #014c8c;
+}
+
+/* For at gøre ordreliste knapperne pænere */
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Mindre padding */
+    border: 1px solid #ddd;
+    margin-bottom: 8px; /* Mindre margin mellem ordrene */
+}
+
+.list-group-item.empty {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}
+
+/* Styling til footer */
+footer {
+    background-color: #270645; /* Match headerens farve */
+    color: white;
+    padding: 20px 10%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; /* Standard tekststørrelse */
+    margin-top: 30px; /* Plads over footeren */
+    border-top: 3px solid #007BFF; /* En linje for visuelt fokus */
+}
+
+footer .footer-container {
+    display: flex; /* Placer sektionerne side om side */
+    justify-content: center; /* Centrerer sektionerne vandret */
+    align-items: flex-start; /* Juster topkanten af sektionerne */
+    max-width: 1200px; /* Begrænset bredde for bedre layout */
+    margin: 0 auto; /* Centrer indholdet */
+    gap: 130px; /* Gør plads mellem sektionerne */
+}
+
+footer .footer-info {
+    display: flex;
+    flex-direction: column; /* Teksten står i kolonner */
+    text-align: left; /* Venstrestil teksten */
+    gap: 10px; /* Mellemrum mellem tekstlinjerne */
+}
+
+footer .footer-info strong {
+    color: #007BFF; /* Gør overskrifter mere iøjnefaldende */
+}
+
+footer .footer-info p {
+    margin: 5px 0; /* Juster afstand mellem linjerne */
+}
+
+footer .footer-copy {
+    color: white; /* Hvid tekst */
+    text-align: center; /* Centreret tekst */
+    font-size: 7px; /* Mindre tekststørrelse */
+    padding: 10px 0; /* Lodret padding */
+    margin-top: 10px; /* Plads mellem info-sektionerne og copy-sektionen */
+}
+
+footer a {
+    color: #007BFF; /* Blå farve til links */
+    text-decoration: none; /* Fjern understregning */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Understregning ved hover */
+}
+
+/* Responsivitet med Bootstrap */ 
+@media (max-width: 1152px) {
+    
+    header a .logo {
+        max-width: 100px;
+        margin-left: 120px;
+        margin-right: 50px;
+    }
+
+    .navbar ul {
+        gap: 15px;
+    }
+
+    footer {
+        font-size: 13px; /* Justér fontstørrelse yderligere for meget små skærme */
+    }
+    footer .footer-container {
+        gap: 90px; /* Reducér mellemrummet yderligere */
+        padding: 0px; /* Mindre padding for mobil */
+    }
+    footer .footer-info {
+        gap: 2px; /* Tættere mellemrum mellem infoelementer */
+    }
+}
+
+@media (max-width: 960px) {
+    
+    header a .logo {
+        max-width: 90px;
+        margin-left: 50px;
+    }
+
+    .navbar ul li a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .item {
+        flex: 1 1 calc(50% - 15px); /* 2 kolonner layout */
+    }
+    .item h4 {
+        font-size: 1rem;
+    }
+    .item p.price {
+        font-size: 0.8rem;
+    }
+    .item-controls button {
+        font-size: 1rem;
+        padding: 6px 10px;
+    }
+    .item-controls .item-count {
+        font-size: 1rem;
+        width: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.8rem; /* Reducer tekststørrelse */
+        text-align: center; /* Placer teksten i midten */
+    }
+
+    .order-info {
+        gap: 5px; /* Mindre plads mellem elementerne */
+    }
+
+    .order-info div {
+        flex-basis: 45%; /* Gør elementerne bredere ved mindre skærme */
+        margin-bottom: 5px;
+        font-size: 14px; /* Mindre tekststørrelse */
+    }
+
+    .order-actions button {
+        font-size: 12px; /* Mindre font-størrelse for knapperne */
+        padding: 4px 8px; /* Mindre padding */
+    }
+
+    .list-group-item {
+        font-size: 14px; /* Mindre tekststørrelse for listen */
+        padding: 8px; /* Mindre padding */
+    }
+
+    .order-intro h1 {
+        font-size: 2.5rem; /* Reducer overskriftens størrelse */
+    }
+    .order-intro p {
+        font-size: 1.2rem; /* Gør teksten mindre */
+    }
+    .order-details h2 {
+        font-size: 1.8rem; /* Reducer overskriftens størrelse */
+    }
+    .form-group label {
+        font-size: 1rem; /* Gør labels mindre */
+    }
+    .form-group input, .form-group select, .form-group textarea {
+        font-size: 0.9rem; /* Gør input-felter mindre */
+        padding: 8px; /* Reducer padding */
+    }
+    .form-buttons .btn {
+        font-size: 0.9rem; /* Gør knapperne mindre */
+        padding: 8px 16px; /* Mindre padding */
+    }
+
+    footer {
+        font-size: 12px; /* Justér fontstørrelse yderligere for meget små skærme */
+    }
+    footer .footer-container {
+        gap: 80px; /* Reducér mellemrummet yderligere */
+        padding: 0px; /* Mindre padding for mobil */
+    }
+    footer .footer-info {
+        gap: 2px; /* Tættere mellemrum mellem infoelementer */
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .navbar {
+        display: none;
+    }
+
+    header .menu-icon {
+        display: block; /* Vis menu-ikonet */
+        margin: 40px;
+        width: 30px;
+    }
+
+    /* Sørg for at slide-menuen kan vises korrekt på små skærme */
+    #slide-menu {
+        right: -250px; /* Skjult som standard */
+    }
+
+    .item {
+        flex: 1 1 calc(100% - 15px); /* 1 kolonne layout */
+    }
+    .item-info {
+        margin-right: 10px; /* Endnu mindre afstand mellem varens info og kontroller */
+    }
+    .item h4 {
+        font-size: 0.8rem;
+    }
+    .item p.price {
+        font-size: 0.8rem;
+    }
+    .item-controls button {
+        font-size: 0.9rem;
+        padding: 5px 8px;
+    }
+    .item-controls .item-count {
+        font-size: 0.9rem;
+        width: 10px;
+        margin: 0 4px; /* Mindre afstand mellem knapper og antal */
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1.5rem; /* Yderligere reducer tekststørrelse */
+        text-align: center; /* Teksten forbliver centreret */
+    }
+
+    .order-info {
+        gap: 5px; /* Mindre plads mellem elementerne */
+    }
+
+    .order-info div {
+        flex-basis: 100%; /* Elementerne bliver mere vertikalt orienteret */
+        font-size: 10px; /* Meget mindre tekststørrelse */
+    }
+
+    .order-actions button {
+        font-size: 10px; /* Meget mindre knaptekst */
+        padding: 3px 6px; /* Mindre padding */
+    }
+
+    .list-group-item {
+        font-size: 12px; /* Mindre tekststørrelse for listen */
+        padding: 6px; /* Mindre padding */
+    }
+
+    .order-intro {
+        padding: 20px 15px; /* Reducer padding */
+    }
+    .order-intro h1 {
+        font-size: 2rem; /* Yderligere reducer overskriftens størrelse */
+    }
+    .order-intro p {
+        font-size: 1rem; /* Yderligere reducer tekststørrelsen */
+    }
+    .order-details {
+        padding: 15px; /* Reducer padding */
+    }
+    .form-group input, .form-group select, .form-group textarea {
+        font-size: 0.85rem; /* Yderligere reducer tekststørrelsen i inputfelter */
+    }
+    .form-buttons .btn {
+        font-size: 0.85rem; /* Yderligere reducer knappernes tekststørrelse */
+        padding: 6px 12px; /* Mindre padding */
+    }
+
+    footer {
+        font-size: 11px; /* Justér fontstørrelse yderligere for meget små skærme */
+    }
+    footer .footer-container {
+        gap: 60px; /* Reducér mellemrummet yderligere */
+        padding: 0px; /* Mindre padding for mobil */
+    }
+    footer .footer-info {
+        gap: 2px; /* Tættere mellemrum mellem infoelementer */
+    }
+}
+
+@media (max-width: 576px) {
+    
+    .navbar {
+        display: none;
+    }
+
+    header .menu-icon {
+        display: block; /* Vis menu-ikonet */
+        margin: 40px;
+        width: 30px;
+    }
+
+    h1 {
+        font-size: 1rem;
+    }
+
+    h3 {
+        font-size: 1.3rem; /* Mindste tekststørrelse */
+        text-align: center; /* Centrer teksten */
+    }
+
+    .order-info {
+        gap: 2px; /* Mindre plads mellem elementerne */
+    }
+
+    .order-info div {
+        flex-basis: 100%; /* Fuldbredde for hver div */
+        font-size: 8px; /* Ekstremt lille tekststørrelse */
+    }
+
+    .order-actions button {
+        font-size: 8px; /* Ekstremt lille knaptekst */
+        padding: 2px 4px; /* Meget mindre padding */
+    }
+
+    .list-group-item {
+        font-size: 10px; /* Ekstremt lille tekststørrelse for listen */
+        padding: 4px; /* Ekstremt lille padding */
+    }
+
+    .order-intro {
+        padding: 15px 10px; /* Endnu mindre padding */
+        text-align: left; /* Juster tekstens justering til venstre */
+    }
+    .order-intro h1 {
+        font-size: 1.8rem; /* Endnu mindre overskrift */
+    }
+    .order-intro p {
+        font-size: 0.9rem; /* Endnu mindre tekst */
+    }
+    .order-details {
+        padding: 10px; /* Endnu mindre padding */
+    }
+    .order-details h2 {
+        font-size: 1.5rem; /* Mindre overskrift */
+    }
+    .form-group input, .form-group select, .form-group textarea {
+        font-size: 0.8rem; /* Mindste tekststørrelse i inputfelter */
+        padding: 6px; /* Mindre padding */
+    }
+    .form-buttons .btn {
+        font-size: 0.8rem; /* Mindste knapper */
+        padding: 4px 10px; /* Mindre padding */
+    }
+
+    footer {
+        font-size: 10px; /* Justér fontstørrelse yderligere for meget små skærme */
+    }
+    footer .footer-container {
+        gap: 50px; /* Reducér mellemrummet yderligere */
+        padding: 0px; /* Mindre padding for mobil */
+    }
+    footer .footer-info {
+        gap: 2px; /* Tættere mellemrum mellem infoelementer */
+    }
+}

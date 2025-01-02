@@ -1,0 +1,695 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Styling til header */
+header {
+    background-color: #270645;
+    color: white;
+    padding: 10px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* For at kunne placere Menu-billedet over navbaren */
+}
+
+/* Styling til logo-linket */
+header a .logo {
+    max-width: 100px; 
+    height: auto;
+    margin-left: 250px;
+    margin-right: 100px;
+}
+
+/* Skjult billede af menuen, vises kun under 768px */
+header .menu-icon {
+    display: none; /* Skjult som standard */
+    max-width: 50px; /* Juster størrelsen af menuikonet */
+    cursor: pointer; /* Gør det klikbart */
+    position: absolute;
+    right: 10px;
+}
+
+/* Styling til luk-knap */
+#close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px; /* Juster efter behov */
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#close-btn:hover {
+    transform: scale(1.2); /* Gør knappen lidt større ved hover */
+}
+
+/* Styling til slidemenupanelet */
+#slide-menu {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Skjul menuen til højre */
+    width: 250px;
+    height: 100%;
+    background-color: #361b4f;
+    color: white;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+#slide-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+}
+
+#slide-menu ul li {
+    margin: 20px 0;
+}
+
+#slide-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px; /* Tilføj lidt polstring for klikbart område */
+    display: block; /* Gør hele området klikbart */
+    border-radius: 5px; /* Tilføj afrundede kanter */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Gør hover-effekten glidende */
+}
+
+/* Hover-effekt */
+#slide-menu ul li a:hover {
+    background-color: #4a246a; /* Mørkere lilla nuance */
+    color: #ffd700; /* Guldtekstfarve */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Tilføj en let skygge ved hover */
+}
+
+/* Når menuen er åben */
+#slide-menu.open {
+    right: 0;
+}
+
+/* Active state styling for the active button */
+.slide-dropdown-toggle.active {
+    background-color: #4a246a;  /* Same background color as the dropdown */
+    color: #ffd700;  /* Optional: Text color */
+    font-weight: bold;  /* Make the text bold to highlight the active button */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);  /* Add a light shadow for the active button */
+}
+
+/* Styling for dropdowns when active */
+.slide-dropdown-menu {
+    display: none;  /* Hide the dropdowns by default */
+    background-color: #4a246a;  /* Same background color for the dropdown */
+    padding: 10px 0;
+    list-style: none;
+    border-radius: 5px;
+}
+
+.slide-dropdown-menu li a {
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.slide-dropdown-menu li a:hover {
+    background-color: #361b4f;
+    color: #ffd700;
+}
+
+.slide-dropdown.open .slide-dropdown-menu {
+    display: block;
+}
+
+/* Styling til navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 30px;
+    gap: 0px; /* Bruger gap for let justering */
+    flex-grow: 1; /* Sørger for fleksibilitet i bredden */
+    justify-content: flex-start; /* Placer navbaren tættere på logoet */
+}
+
+/* Styling af navbarens elementer */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar ul li {
+    position: relative; 
+    margin: 0 10px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    background-color: #270645;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.navbar ul li a:hover {
+    background-color: #0056b3;
+    color: #000000;
+}
+
+/* Dropdown-menu styling */
+.dropdown-menu {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    display: none; 
+    background-color: #182A61;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    padding: 10px 0;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.dropdown-menu li a {
+    color: #000000;
+    background-color: transparent;
+    padding: 10px 20px;
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    border-radius: 0;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f4f4f4;
+    color: #000000;
+}
+
+/* Styling for the whole page */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #182A61;  /* Mørk blå baggrund */
+    color: #f4f4f4;  /* Lys tekstfarve for bedre kontrast */
+}
+
+/* Styling for Bar Introduction Section with Black Background and Fading Effect */
+section.container-fluid.bg-light {
+    background: linear-gradient(to bottom, rgb(245, 20, 20), rgba(79, 44, 233, 0.7)); /* Sort baggrund med fading-effekt */
+    padding: 60px 0; /* Øg padding for at give god plads til indholdet */
+    text-align: center;
+    color: white; /* Hvid tekst for bedre kontrast mod den sorte baggrund */
+}
+
+section.container-fluid.bg-light h2 {
+    font-size: 36px; /* Større fontstørrelse for overskriften */
+    margin-bottom: 20px; /* Afstand mellem overskriften og teksten */
+    font-family: 'Arial', sans-serif; /* En simpel og moderne skrifttype */
+    font-weight: bold;
+    text-transform: uppercase; /* Gør overskriften mere fremtrædende */
+}
+
+section.container-fluid.bg-light p {
+    font-size: 18px;
+    color: white; /* Hvid tekst for bedre synlighed på den mørke baggrund */
+    max-width: 800px; /* Begræns tekstbredden for at undgå lange linjer */
+    margin: 0 auto 30px auto; /* Centrer teksten og skab afstand nedenunder */
+    line-height: 1.6; /* Gør linjeafstanden større for bedre læsbarhed */
+    font-family: 'Georgia', serif; /* Serif-skrifttype for en mere elegant følelse */
+}
+
+section.container-fluid.bg-light .row {
+    display: flex;
+    justify-content: center; /* Centrer indholdet horisontalt */
+    align-items: center;
+    flex-direction: column; /* Gør sektionen vertikal på mindre skærme */
+}
+
+/* Container settings */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Section Titles */
+h1 {
+    font-weight: bold;
+    font-size: 3rem;
+    color: #f4f4f4;  /* Rød farve for overskrifter */
+    margin-bottom: 20px;
+}
+
+/* Section Titles */
+h2 {
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: #f4f4f4;  /* Rød farve for overskrifter */
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+/* Card settings */
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Image styling */
+.card-img-top {
+    width: 100%;
+    height: 300px;  /* Reduceret højde på billederne */
+    object-fit: cover;  /* Bibehold zoom-effekten */
+    object-position: center;  /* Centrer billedet */
+    border-bottom: 3px solid #e2e2e2;
+}
+
+/* Card Body */
+.card-body {
+    padding: 15px;
+    text-align: center;
+    background-color: #270645;  /* Mørk lilla baggrund for kortene */
+}
+
+/* Card Title */
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #f4f4f4;  /* Lysere tekstfarve for titler */
+}
+
+.ingrediens {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #27c048;  /* Lysere tekstfarve for beskrivelsen */
+    margin-bottom: 10px;
+}
+
+/* Card Text */
+.card-items {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #ccc;  /* Lysere tekstfarve for beskrivelsen */
+    margin-bottom: 10px;
+}
+
+/* Card Text */
+.card-text {
+    font-size: 0.9rem;
+    color: #ccc;  /* Lysere tekstfarve for beskrivelsen */
+    margin-bottom: 10px;
+}
+
+/* Price Text */
+.text-success {
+    font-weight: bold;
+    color: #28a745;  /* Grøn farve for pris */
+    font-size: 1.1rem;
+}
+
+/* Row and column layout */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.col-md-4 {
+    flex: 1 1 calc(33.333% - 20px);
+    max-width: calc(33.333% - 20px);
+    margin-bottom: 30px;
+}
+
+/* Styling for BilledKarussel */
+.carousel-container {
+    background-color: #270645; /* Mørk baggrundsfarve */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-inner img {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6); /* Gennemsigtig baggrund */
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff; /* Lys tekst */
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 90%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+
+.carousel-indicators .active {
+    background-color: #000;
+}
+
+
+/* Styling for FAQ-Sektion */
+.accordion-header .accordion-button {
+    font-weight: bold;
+    background-color: #270645;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #f4f4f4;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Styling toggle pilen */
+.accordion-header .accordion-button::after {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-left: auto;
+    vertical-align: middle;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 5.646a.5.5 0 0 1 .708 0L8 11.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition: background-color 0.3s ease, background-image 0.3s ease;
+}
+
+/* Sort pil, når musen holdes over */
+.accordion-header .accordion-button:hover::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 5.646a.5.5 0 0 1 .708 0L8 11.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+
+/* Hover styling for button */
+.accordion-header .accordion-button:hover {
+    background-color: #e9ecef;
+    color: #000;
+}
+
+.accordion-body {
+    background-color: #fdfdfd;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+}
+
+h2.accordion-header {
+    margin: 0;
+}
+
+/* Container spacing and alignment */
+.container .container.my-4 {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.container.col-md-4 h3 {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Styling til footer */
+footer {
+    background-color: #270645; /* Match headerens farve */
+    color: white;
+    padding: 20px 10%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; /* Standard tekststørrelse */
+    margin-top: 30px; /* Plads over footeren */
+    border-top: 3px solid #007BFF; /* En linje for visuelt fokus */
+}
+
+footer .footer-container {
+    display: flex; /* Placer sektionerne side om side */
+    justify-content: center; /* Centrerer sektionerne vandret */
+    align-items: flex-start; /* Juster topkanten af sektionerne */
+    max-width: 1200px; /* Begrænset bredde for bedre layout */
+    margin: 0 auto; /* Centrer indholdet */
+    gap: 130px; /* Gør plads mellem sektionerne */
+}
+
+footer .footer-info {
+    display: flex;
+    flex-direction: column; /* Teksten står i kolonner */
+    text-align: left; /* Venstrestil teksten */
+    gap: 10px; /* Mellemrum mellem tekstlinjerne */
+}
+
+footer .footer-info strong {
+    color: #007BFF; /* Gør overskrifter mere iøjnefaldende */
+}
+
+footer .footer-info p {
+    margin: 5px 0; /* Juster afstand mellem linjerne */
+}
+
+footer .footer-copy {
+    color: white; /* Hvid tekst */
+    text-align: center; /* Centreret tekst */
+    font-size: 7px; /* Mindre tekststørrelse */
+    padding: 10px 0; /* Lodret padding */
+    margin-top: 10px; /* Plads mellem info-sektionerne og copy-sektionen */
+}
+
+footer a {
+    color: #007BFF; /* Blå farve til links */
+    text-decoration: none; /* Fjern understregning */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Understregning ved hover */
+}
+
+/* Responsivitet med Bootstrap */ 
+@media (max-width: 1152px) {
+    
+    header a .logo {
+        max-width: 100px;
+        margin-left: 120px;
+        margin-right: 50px;
+    }
+
+    .navbar ul {
+        gap: 15px;
+    }
+
+    footer {
+        font-size: 13px; /* Justér fontstørrelse yderligere for meget små skærme */
+    }
+    footer .footer-container {
+        gap: 90px; /* Reducér mellemrummet yderligere */
+        padding: 0px; /* Mindre padding for mobil */
+    }
+    footer .footer-info {
+        gap: 2px; /* Tættere mellemrum mellem infoelementer */
+    }
+}
+
+@media (max-width: 960px) {
+    
+    header a .logo {
+        max-width: 90px;
+        margin-left: 50px;
+    }
+
+    .navbar ul li a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    footer {
+        font-size: 12px; /* Justér fontstørrelse yderligere for meget små skærme */
+    }
+    footer .footer-container {
+        gap: 80px; /* Reducér mellemrummet yderligere */
+        padding: 0px; /* Mindre padding for mobil */
+    }
+    footer .footer-info {
+        gap: 2px; /* Tættere mellemrum mellem infoelementer */
+    }
+}
+
+@media (max-width: 768px) { 
+    .navbar {
+        display: none;
+    }
+
+    header .menu-icon {
+        display: block; /* Vis menu-ikonet */
+        margin: 40px;
+        width: 30px;
+    }
+
+    /* Sørg for at slide-menuen kan vises korrekt på små skærme */
+    #slide-menu {
+        right: -250px; /* Skjult som standard */
+    }
+
+    .carousel-caption {
+        font-size: 1rem; /* Mindre tekst */
+        padding: 8px 16px; /* Mindre padding */
+    }
+
+    .col-md-4 {
+        flex: 1 1 75%; /* Reducér bredden til 75% af skærmen i stedet for 80% */
+        max-width: 65%; /* Gør kolonnerne lidt smallere */
+        margin: 0 auto 20px; /* Centrér kolonnerne og tilføj margin i bunden */
+    }
+
+    .card {
+        margin: 0 auto; /* Sørg for, at kortene er centreret */
+    }
+
+    .card-title {
+        font-size: 1rem; /* Endnu mindre titelstørrelse */
+    }
+
+    .card-body {
+        padding: 10px; /* Mindre padding på meget små skærme */
+    }
+
+    .card-img-top {
+        height: 100%; /* Yderligere reduktion af billedhøjde */
+        width: 350px;
+    }
+
+    section.container-fluid.bg-light h1 {
+        font-size: 28px; /* Reducer størrelsen på overskriften */
+        margin-bottom: 15px; /* Mindre afstand mellem overskrift og tekst */
+    }
+
+    section.container-fluid.bg-light p {
+        font-size: 16px; /* Reducer fontstørrelsen på paragrafen */
+        max-width: 90%; /* Øg bredden for at fylde mere plads */
+        margin: 0 auto 20px auto; /* Mindre margin */
+        line-height: 1.4; /* Mindre linjeafstand for kompakt tekst */
+    }
+
+    h2 {
+        font-size: 2rem;
+        text-transform: capitalize;
+        text-decoration: underline;
+    }
+
+    footer {
+        font-size: 11px; /* Justér fontstørrelse yderligere for meget små skærme */
+    }
+    footer .footer-container {
+        gap: 60px; /* Reducér mellemrummet yderligere */
+        padding: 0px; /* Mindre padding for mobil */
+    }
+    footer .footer-info {
+        gap: 2px; /* Tættere mellemrum mellem infoelementer */
+    }
+}
+
+@media (max-width: 576px) { 
+    .navbar {
+        display: none;
+    }
+
+    header .menu-icon {
+        display: block; /* Vis menu-ikonet */
+        margin: 40px;
+        width: 30px;
+    }
+
+    .carousel-caption {
+        font-size: 0.7rem; /* Endnu mindre tekst */
+        padding: 6px 12px; /* Mindre padding */
+    }
+
+    .col-md-4 {
+        flex: 1 1 85%; /* Reducér bredden til 85% af skærmen i stedet for 90% */
+        max-width: 60%; /* Gør kolonnerne lidt smallere */
+        margin: 0 auto 15px; /* Mindre margin i bunden for små skærme */
+    }
+
+    .card {
+        margin: 0 auto; /* Sørg for, at kortene er centreret */
+    }
+
+    .card-title {
+        font-size: 1rem; /* Endnu mindre titelstørrelse */
+    }
+
+    .card-body {
+        padding: 10px; /* Mindre padding på meget små skærme */
+    }
+
+    .card-img-top {
+        height: 100%; /* Yderligere reduktion af billedhøjde */
+        width: 250px;
+    }
+
+    section.container-fluid.bg-light h1 {
+        font-size: 24px; /* Reducer størrelsen på overskriften endnu mere */
+        margin-bottom: 10px; /* Mindre afstand mellem overskrift og tekst */
+    }
+
+    section.container-fluid.bg-light p {
+        font-size: 14px; /* Reducer fontstørrelsen på paragrafen yderligere */
+        max-width: 90%; /* Maksimere bredden på teksten */
+        margin: 0 auto 15px auto; /* Mindre margin */
+        line-height: 1.3; /* Yderligere reduktion af linjeafstand */
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        text-transform: capitalize;
+        text-decoration: underline;
+    }
+
+    footer {
+        font-size: 10px; /* Justér fontstørrelse yderligere for meget små skærme */
+    }
+    footer .footer-container {
+        gap: 50px; /* Reducér mellemrummet yderligere */
+        padding: 0px; /* Mindre padding for mobil */
+    }
+    footer .footer-info {
+        gap: 2px; /* Tættere mellemrum mellem infoelementer */
+    }
+}

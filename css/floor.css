@@ -1,0 +1,901 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Styling til header */
+header {
+    background-color: #270645;
+    color: white;
+    padding: 10px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* For at kunne placere Menu-billedet over navbaren */
+}
+
+/* Styling til logo-linket */
+header a .logo {
+    max-width: 100px; 
+    height: auto;
+    margin-left: 250px;
+    margin-right: 100px;
+}
+
+/* Skjult billede af menuen, vises kun under 768px */
+header .menu-icon {
+    display: none; /* Skjult som standard */
+    max-width: 50px; /* Juster størrelsen af menuikonet */
+    cursor: pointer; /* Gør det klikbart */
+    position: absolute;
+    right: 10px;
+}
+
+/* Styling til luk-knap */
+#close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px; /* Juster efter behov */
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#close-btn:hover {
+    transform: scale(1.2); /* Gør knappen lidt større ved hover */
+}
+
+/* Styling til slidemenupanelet */
+#slide-menu {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Skjul menuen til højre */
+    width: 250px;
+    height: 100%;
+    background-color: #361b4f;
+    color: white;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+#slide-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+}
+
+#slide-menu ul li {
+    margin: 20px 0;
+}
+
+#slide-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px; /* Tilføj lidt polstring for klikbart område */
+    display: block; /* Gør hele området klikbart */
+    border-radius: 5px; /* Tilføj afrundede kanter */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Gør hover-effekten glidende */
+}
+
+/* Hover-effekt */
+#slide-menu ul li a:hover {
+    background-color: #4a246a; /* Mørkere lilla nuance */
+    color: #ffd700; /* Guldtekstfarve */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Tilføj en let skygge ved hover */
+}
+
+/* Når menuen er åben */
+#slide-menu.open {
+    right: 0;
+}
+
+/* Active state styling for the active button */
+.slide-dropdown-toggle.active {
+    background-color: #4a246a;  /* Same background color as the dropdown */
+    color: #ffd700;  /* Optional: Text color */
+    font-weight: bold;  /* Make the text bold to highlight the active button */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);  /* Add a light shadow for the active button */
+}
+
+/* Styling for dropdowns when active */
+.slide-dropdown-menu {
+    display: none;  /* Hide the dropdowns by default */
+    background-color: #4a246a;  /* Same background color for the dropdown */
+    padding: 10px 0;
+    list-style: none;
+    border-radius: 5px;
+}
+
+.slide-dropdown-menu li a {
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.slide-dropdown-menu li a:hover {
+    background-color: #361b4f;
+    color: #ffd700;
+}
+
+.slide-dropdown.open .slide-dropdown-menu {
+    display: block;
+}
+
+/* Styling til navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 30px;
+    gap: 0px; /* Bruger gap for let justering */
+    flex-grow: 1; /* Sørger for fleksibilitet i bredden */
+    justify-content: flex-start; /* Placer navbaren tættere på logoet */
+}
+
+/* Styling af navbarens elementer */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar ul li {
+    position: relative; 
+    margin: 0 10px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    background-color: #270645;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.navbar ul li a:hover {
+    background-color: #0056b3;
+    color: #000000;
+}
+
+/* Dropdown-menu styling */
+.dropdown-menu {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    display: none; 
+    background-color: #182A61;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    padding: 10px 0;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.dropdown-menu li a {
+    color: #000000;
+    background-color: transparent;
+    padding: 10px 20px;
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    border-radius: 0;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f4f4f4;
+    color: #000000;
+}
+
+.search-container {
+    display: flex;
+    padding: 12px;
+    align-items: center; /* Centrer elementerne lodret */
+    gap: 0.5rem; /* Tilføj afstand mellem elementerne */
+    justify-content: center; /* Centrer elementerne horisontalt */
+    width: 100%; /* Sørg for, at containeren strækker sig over hele bredden */
+}
+
+#search-input {
+    width: 200px; /* Reduceret bredde */
+    padding: 10px; /* Indvendig polstring */
+    border: 1px solid #ccc; /* Lys grå kant */
+    border-radius: 5px; /* Rundede hjørner */
+    font-size: 14px; /* Skriftstørrelse */
+    transition: border-color 0.3s ease; /* Glat overgang for kantfarve */
+}
+
+#search-input:focus {
+    border-color: #182A61; /* Mørk blå kant ved fokus */
+    outline: none; /* Fjern standard fokus-ramme */
+    box-shadow: 0 0 5px rgba(24, 42, 97, 0.5); /* Blå skygge ved fokus */
+}
+
+.styled-button {
+    background-color: #182A61; /* Mørk blå baggrund */
+    color: #FFFFFF; /* Hvid tekst */
+    border: none; /* Fjern kant */
+    padding: 10px 20px; /* Indvendig polstring */
+    border-radius: 5px; /* Rundede hjørner */
+    font-size: 14px; /* Skriftstørrelse */
+    cursor: pointer; /* Skift til pointer ved hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Let skygge */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Glatte overgange */
+    margin-left: 0.5rem;
+}
+
+.styled-button:hover {
+    background-color: #f4f4f4; /* Lys baggrund ved hover */
+    color: #000000; /* Sort tekst ved hover */
+    transform: scale(1.05); /* Lidt større ved hover */
+}
+
+.styled-button:active {
+    transform: scale(0.95); /* Mindre når klikket */
+}
+
+/* Styling til body for centrering */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #182A61; /* Baggrundsfarve */
+    justify-content: center; /* Centrer horisontalt */
+    align-items: center; /* Centrer vertikalt */
+    height: 100vh; /* Gør, at body fylder hele skærmhøjden */
+    text-align: center;
+}
+
+/* Styling til kortets container */
+.map-container {
+    position: relative;
+    height: auto;
+    width: 70%; /* Øg bredden af kortet */
+    max-width: 1500px; /* Sæt en større maksimal bredde */
+    background-color: #182A61; /* Baggrundsfarve */
+    padding: 50px; /* Giv lidt afstand omkring billedet */
+    border: 10px solid #270645; /* Valgfri ramme */
+    border-radius: 10px; /* Runde hjørner */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Skygge */
+
+    /* Centrer containeren i midten af skærmen */
+    margin: 0 auto; /* Centrer containeren horisontalt */
+    justify-content: center; /* Centrer indhold horisontalt */
+    align-items: center; /* Centrer indhold vertikalt */
+    
+}
+
+/* Styling til etagebillederne */
+.map-container img {
+    display: block;
+    width: 100%; /* Fyld hele containerens bredde */
+    height: auto; /* Bevar billedets proportioner */
+    border-radius: 5px; /* Runde hjørner på billedet */
+}
+
+/* Styling for kort punkter */
+.point {
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%; 
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out; /* Glat overgang ved ændring */
+}
+
+.point.active {
+    transform: translate(-50%, -50%) scale(1.2); /* Gør punktet større */
+    background-color: rgba(255, 255, 0, 0.8); /* Tilføj en lys farve */
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.7); /* Tilføj glød */
+    z-index: 11; /* Sørg for, at det er øverst */
+}
+
+/* Default positioner for etage 0 */
+#bar03-Etage0 { top: 78%; left: 46%; }
+#deli02-Etage0 { top: 67%; left: 51%; }
+#merchandise-Etage0 { top: 83%; left: 55%; }
+#eventhall-Etage0 { top: 47%; left: 51%; }
+#menWC1-Etage0 { top: 57%; left: 29%; }
+#menWC2-Etage0 { top: 57%; left: 74%; }
+#womenWC1-Etage0 { top: 63%; left: 33%; }
+#womenWC2-Etage0 { top: 63%; left: 70%; }
+#vip1-Etage0 { top: 83%; left: 15%; }
+#vip2-Etage0 { top: 69%; left: 87%; }
+
+/* Default positioner for etage 1 */
+#bar13-Etage1 { top: 67%; left: 58%; }
+#bar11-Etage1 { top: 33%; left: 75%; }
+#bar16-Etage1 { top: 33%; left: 26%; }
+#deli14-Etage1 { top: 67%; left: 42%; }
+#deli12-Etage1 { top: 47%; left: 75%; }
+#deli15-Etage1 { top: 47%; left: 26%; }
+#merchandise-Etage1 { top: 63%; left: 31%; }
+#eventhall-Etage1 { top: 47%; left: 50%; }
+#menWC1-Etage1 { top: 26%; left: 75%; }
+#menWC2-Etage1 { top: 55%; left: 75%; }
+#menWC3-Etage1 { top: 40%; left: 26%; }
+#womenWC1-Etage1 { top: 40%; left: 75%; }
+#womenWC2-Etage1 { top: 26%; left: 26%; }
+#womenWC3-Etage1 { top: 55%; left: 26%; }
+#garderobe-Etage1 { top: 63%; left: 70%; }
+
+/* Default positioner for etage 3 */
+#bar35-Etage3 { top: 47%; left: 27%; }
+#bar33-Etage3 { top: 68%; left: 50%; }
+#bar31-Etage3 { top: 47%; left: 75%; }
+#eventhall-Etage3 { top: 47%; left: 50%; }
+#menWC1-Etage3 { top: 33%; left: 75%; }
+#menWC2-Etage3 { top: 55%; left: 75%; }
+#menWC3-Etage3 { top: 40%; left: 27%; }
+#menWC4-Etage3 { top: 67%; left: 39%; }
+#womenWC1-Etage3 { top: 40%; left: 75%; }
+#womenWC2-Etage3 { top: 33%; left: 27%; }
+#womenWC3-Etage3 { top: 54%; left: 27%; }
+#womenWC4-Etage3 { top: 67%; left: 61%; }
+
+/* Pop-up styling */
+.popup {
+    display: none;
+    position: absolute;
+    background: #13215c; /* Baggrundsfarve */
+    color: white; /* Tekstfarve */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    width: 220px; /* Justeret bredde for bedre tilpasning */
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem; /* Justeret skrifttype-størrelse */
+}
+
+/* Vis popup */
+.popup.active {
+    display: block;
+}
+
+.popup-link {
+    display: inline-block;
+    margin-top: 10px; /* Øget margin for at adskille linket fra beskrivelsen */
+    padding: 0.4rem 0.8rem;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.8rem; /* Passende font størrelse */
+}
+
+.popup-link:hover {
+    background-color: #0056b3;
+}
+
+.popup .close {
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+    text-decoration: underline;
+    margin-top: 10px;
+}
+
+.close {
+    cursor: pointer;
+    display: inline-block;
+    width: 20px; /* Juster størrelse af luk-knappen */
+    height: 20px;
+    background-image: url('../images/Close.png'); /* Sørg for at angive korrekt sti til billedet */
+    background-size: cover; /* Sørger for, at billedet fylder knappen */
+    background-repeat: no-repeat;
+    margin-top: 10px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.close:hover {
+    opacity: 0.7; /* Giver en let effekt ved hover */
+}
+
+/* Styling til footer */
+footer {
+    background-color: #270645; /* Match headerens farve */
+    color: white;
+    padding: 20px 10%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; /* Standard tekststørrelse */
+    margin-top: 30px; /* Plads over footeren */
+    border-top: 3px solid #007BFF; /* En linje for visuelt fokus */
+}
+
+footer .footer-container {
+    display: flex; /* Placer sektionerne side om side */
+    justify-content: center; /* Centrerer sektionerne vandret */
+    align-items: flex-start; /* Juster topkanten af sektionerne */
+    max-width: 1200px; /* Begrænset bredde for bedre layout */
+    margin: 0 auto; /* Centrer indholdet */
+    gap: 130px; /* Gør plads mellem sektionerne */
+}
+
+footer .footer-info {
+    display: flex;
+    flex-direction: column; /* Teksten står i kolonner */
+    text-align: left; /* Venstrestil teksten */
+    gap: 10px; /* Mellemrum mellem tekstlinjerne */
+}
+
+footer .footer-info strong {
+    color: #007BFF; /* Gør overskrifter mere iøjnefaldende */
+}
+
+footer .footer-info p {
+    margin: 5px 0; /* Juster afstand mellem linjerne */
+}
+
+footer .footer-copy {
+    color: white; /* Hvid tekst */
+    text-align: center; /* Centreret tekst */
+    font-size: 7px; /* Mindre tekststørrelse */
+    padding: 10px 0; /* Lodret padding */
+    margin-top: 10px; /* Plads mellem info-sektionerne og copy-sektionen */
+}
+
+footer a {
+    color: #007BFF; /* Blå farve til links */
+    text-decoration: none; /* Fjern understregning */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Understregning ved hover */
+}
+
+/* Responsivitet med Bootstrap */ 
+@media (max-width: 1152px) {
+    
+    header a .logo {
+        max-width: 100px;
+        margin-left: 120px;
+        margin-right: 50px;
+    }
+
+    .navbar ul {
+        gap: 15px;
+    }
+    
+    .map-container {
+        width: 75%; /* Øger bredden lidt på mellemstore skærme */
+        padding: 40px; /* Juster padding */
+    }
+    
+    .point {
+        width: 1.5rem; /* Lidt større punkter på skærme under 1152px */
+        height: 1.5rem;
+    }
+
+    .popup {
+        height: 21%;
+        width: 19%;
+        font-size: 0.7rem;
+    }
+
+    .popup-link {
+        font-size: 0.7rem; /* Mindre font på mellemstore skærme */
+        padding: 0.35rem 0.7rem;
+    }
+
+    .close {
+        cursor: pointer;
+        display: inline-block;
+        width: 17.5px; /* Juster størrelse af luk-knappen */
+        height: 17.5px;
+        background-image: url('../images/Close.png'); /* Sørg for at angive korrekt sti til billedet */
+        background-size: cover; /* Sørger for, at billedet fylder knappen */
+        background-repeat: no-repeat;
+        margin-top: 10px;
+        position: absolute;
+        top: 4px;
+        right: 4px;
+    }
+    
+    .close:hover {
+        opacity: 0.7; /* Giver en let effekt ved hover */
+    }
+
+    /* Etage 0 */
+    #bar03-Etage0 { top: 78%; left: 46%; }
+    #deli02-Etage0 { top: 67%; left: 50%; }
+    #merchandise-Etage0 { top: 83%; left: 55%; }
+    #eventhall-Etage0 { top: 47%; left: 50%; }
+    #menWC1-Etage0 { top: 57%; left: 28%; }
+    #menWC2-Etage0 { top: 57%; left: 74%; }
+    #womenWC1-Etage0 { top: 63%; left: 33%; }
+    #womenWC2-Etage0 { top: 63%; left: 70%; }
+    #vip1-Etage0 { top: 81%; left: 17%; }
+    #vip2-Etage0 { top: 69%; left: 85%; }
+
+    /* Etage 1 */
+    #bar13-Etage1 { top: 67%; left: 57%; }
+    #bar11-Etage1 { top: 33%; left: 75%; }
+    #bar16-Etage1 { top: 33%; left: 27%; }
+    #deli14-Etage1 { top: 67%; left: 43%; }
+    #deli12-Etage1 { top: 47%; left: 75%; }
+    #deli15-Etage1 { top: 47%; left: 27%; }
+    #merchandise-Etage1 { top: 62%; left: 31%; }
+    #eventhall-Etage1 { top: 47%; left: 50%; }
+    #menWC1-Etage1 { top: 26%; left: 75%; }
+    #menWC2-Etage1 { top: 55%; left: 75%; }
+    #menWC3-Etage1 { top: 40%; left: 27%; }
+    #womenWC1-Etage1 { top: 40%; left: 75%; }
+    #womenWC2-Etage1 { top: 26%; left: 27%; }
+    #womenWC3-Etage1 { top: 55%; left: 27%; }
+    #garderobe-Etage1 { top: 62%; left: 70%; }
+
+    /* Etage 3 */
+    #bar35-Etage3 { top: 47%; left: 27%; }
+    #bar33-Etage3 { top: 68%; left: 50%; }
+    #bar31-Etage3 { top: 47%; left: 75%; }
+    #eventhall-Etage3 { top: 47%; left: 50%; }
+    #menWC1-Etage3 { top: 33%; left: 75%; }
+    #menWC2-Etage3 { top: 55%; left: 75%; }
+    #menWC3-Etage3 { top: 40%; left: 27%; }
+    #menWC4-Etage3 { top: 66%; left: 40%; }
+    #womenWC1-Etage3 { top: 40%; left: 75%; }
+    #womenWC2-Etage3 { top: 33%; left: 27%; }
+    #womenWC3-Etage3 { top: 55%; left: 27%; }
+    #womenWC4-Etage3 { top: 67%; left: 60%; }
+
+    footer {
+        font-size: 13px; /* Justér fontstørrelse yderligere for meget små skærme */
+    }
+    footer .footer-container {
+        gap: 90px; /* Reducér mellemrummet yderligere */
+        padding: 0px; /* Mindre padding for mobil */
+    }
+    footer .footer-info {
+        gap: 2px; /* Tættere mellemrum mellem infoelementer */
+    }
+}
+
+@media (max-width: 960px) {
+    
+    header a .logo {
+        max-width: 90px;
+        margin-left: 50px;
+    }
+
+    .navbar ul li a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+    
+    .map-container {
+        width: 80%; /* Kortet fylder mere på små skærme */
+        padding: 30px; /* Juster padding */
+    }
+    
+    .point {
+        width: 1.25rem; /* For punkter på skærme under 960px */
+        height: 1.25rem;
+    }
+
+    .popup {
+        height: 19%;
+        width: 21%;
+        font-size: 0.6rem;
+    }
+
+    .popup-link {
+        font-size: 0.6rem; /* Endnu mindre font på små skærme */
+        padding: 0.3rem 0.6rem;
+    }
+
+    .close {
+        cursor: pointer;
+        display: inline-block;
+        width: 15px; /* Juster størrelse af luk-knappen */
+        height: 15px;
+        background-image: url('../images/Close.png'); /* Sørg for at angive korrekt sti til billedet */
+        background-size: cover; /* Sørger for, at billedet fylder knappen */
+        background-repeat: no-repeat;
+        margin-top: 10px;
+        position: absolute;
+        top: 3px;
+        right: 3px;
+    }
+    
+    .close:hover {
+        opacity: 0.7; /* Giver en let effekt ved hover */
+    }
+
+    /* Etage 0 */
+    #bar03-Etage0 { top: 78%; left: 46%; }
+    #deli02-Etage0 { top: 67%; left: 51%; }
+    #merchandise-Etage0 { top: 83%; left: 55%; }
+    #eventhall-Etage0 { top: 47%; left: 51%; }
+    #menWC1-Etage0 { top: 57%; left: 29%; }
+    #menWC2-Etage0 { top: 57%; left: 75%; }
+    #womenWC1-Etage0 { top: 63%; left: 33%; }
+    #womenWC2-Etage0 { top: 63%; left: 70%; }
+    #vip1-Etage0 { top: 80%; left: 20%; }
+    #vip2-Etage0 { top: 69%; left: 83%; }
+    
+    /* Etage 1 */
+    #bar13-Etage1 { top: 67%; left: 57%; }
+    #bar11-Etage1 { top: 33%; left: 75%; }
+    #bar16-Etage1 { top: 33%; left: 27%; }
+    #deli14-Etage1 { top: 67%; left: 43%; }
+    #deli12-Etage1 { top: 47%; left: 75%; }
+    #deli15-Etage1 { top: 47%; left: 27%; }
+    #merchandise-Etage1 { top: 63%; left: 31%; }
+    #eventhall-Etage1 { top: 47%; left: 50%; }
+    #menWC1-Etage1 { top: 26%; left: 75%; }
+    #menWC2-Etage1 { top: 55%; left: 75%; }
+    #menWC3-Etage1 { top: 40%; left: 27%; }
+    #womenWC1-Etage1 { top: 40%; left: 75%; }
+    #womenWC2-Etage1 { top: 26%; left: 27%; }
+    #womenWC3-Etage1 { top: 55%; left: 27%; }
+    #garderobe-Etage1 { top: 63%; left: 70%; }
+
+    /* Etage 3 */
+    #bar35-Etage3 { top: 47%; left: 27%; }
+    #bar33-Etage3 { top: 69%; left: 50%; }
+    #bar31-Etage3 { top: 47%; left: 75%; }
+    #eventhall-Etage3 { top: 47%; left: 50%; }
+    #menWC1-Etage3 { top: 33%; left: 75%; }
+    #menWC2-Etage3 { top: 54%; left: 75%; }
+    #menWC3-Etage3 { top: 40%; left: 27%; }
+    #menWC4-Etage3 { top: 67%; left: 40%; }
+    #womenWC1-Etage3 { top: 40%; left: 75%; }
+    #womenWC2-Etage3 { top: 33%; left: 27%; }
+    #womenWC3-Etage3 { top: 54%; left: 27%; }
+    #womenWC4-Etage3 { top: 67%; left: 61%; }
+
+    footer {
+        font-size: 12px; /* Justér fontstørrelse yderligere for meget små skærme */
+    }
+    footer .footer-container {
+        gap: 80px; /* Reducér mellemrummet yderligere */
+        padding: 0px; /* Mindre padding for mobil */
+    }
+    footer .footer-info {
+        gap: 2px; /* Tættere mellemrum mellem infoelementer */
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .navbar {
+        display: none;
+    }
+
+    header .menu-icon {
+        display: block; /* Vis menu-ikonet */
+        margin: 40px;
+        width: 30px;
+    }
+
+    /* Sørg for at slide-menuen kan vises korrekt på små skærme */
+    #slide-menu {
+        right: -250px; /* Skjult som standard */
+    }
+    
+    .map-container {
+        width: 85%; /* Kortet fylder næsten hele skærmen */
+        padding: 20px; /* Mindre padding */
+    }
+    
+    .point {
+        width: 1rem; /* For punkter på skærme under 768px */
+        height: 1rem;
+    }
+
+    .popup {
+        height: 18%;
+        width: 19%;
+        font-size: 0.5rem;
+    }
+
+    .popup-link {
+        font-size: 0.5rem; /* Mindre font på små skærme */
+        padding: 0.25rem 0.5rem;
+    }
+
+    .close {
+        cursor: pointer;
+        display: inline-block;
+        width: 12.5px; /* Juster størrelse af luk-knappen */
+        height: 12.5px;
+        background-image: url('../images/Close.png'); /* Sørg for at angive korrekt sti til billedet */
+        background-size: cover; /* Sørger for, at billedet fylder knappen */
+        background-repeat: no-repeat;
+        margin-top: 10px;
+        position: absolute;
+        top: 2px;
+        right: 2px;
+    }
+    
+    .close:hover {
+        opacity: 0.7; /* Giver en let effekt ved hover */
+    }
+
+    /* Etage 0 */
+    #bar03-Etage0 { top: 79%; left: 47%; }
+    #deli02-Etage0 { top: 68%; left: 51%; }
+    #merchandise-Etage0 { top: 84%; left: 55%; }
+    #eventhall-Etage0 { top: 47%; left: 51%; }
+    #menWC1-Etage0 { top: 57%; left: 27%; }
+    #menWC2-Etage0 { top: 57%; left: 75%; }
+    #womenWC1-Etage0 { top: 63%; left: 33%; }
+    #womenWC2-Etage0 { top: 63%; left: 71%; }
+    #vip1-Etage0 { top: 79%; left: 20%; }
+    #vip2-Etage0 { top: 68%; left: 81%; }
+
+    /* Etage 1 */
+    #bar13-Etage1 { top: 68%; left: 57%; }
+    #bar11-Etage1 { top: 32%; left: 75%; }
+    #bar16-Etage1 { top: 32%; left: 27%; }
+    #deli14-Etage1 { top: 68%; left: 43%; }
+    #deli12-Etage1 { top: 47%; left: 75%; }
+    #deli15-Etage1 { top: 47%; left: 27%; }
+    #merchandise-Etage1 { top: 63%; left: 31%; }
+    #eventhall-Etage1 { top: 47%; left: 50%; }
+    #menWC1-Etage1 { top: 25%; left: 75%; }
+    #menWC2-Etage1 { top: 55%; left: 75%; }
+    #menWC3-Etage1 { top: 40%; left: 27%; }
+    #womenWC1-Etage1 { top: 40%; left: 75%; }
+    #womenWC2-Etage1 { top: 25%; left: 27%; }
+    #womenWC3-Etage1 { top: 55%; left: 27%; }
+    #garderobe-Etage1 { top: 63%; left: 70%; }
+
+    /* Etage 3 */
+    #bar35-Etage3 { top: 47%; left: 26%; }
+    #bar33-Etage3 { top: 69%; left: 50%; }
+    #bar31-Etage3 { top: 47%; left: 76%; }
+    #eventhall-Etage3 { top: 47%; left: 50%; }
+    #menWC1-Etage3 { top: 32%; left: 76%; }
+    #menWC2-Etage3 { top: 54%; left: 76%; }
+    #menWC3-Etage3 { top: 39%; left: 26%; }
+    #menWC4-Etage3 { top: 67%; left: 39%; }
+    #womenWC1-Etage3 { top: 39%; left: 76%; }
+    #womenWC2-Etage3 { top: 32%; left: 26%; }
+    #womenWC3-Etage3 { top: 54%; left: 26%; }
+    #womenWC4-Etage3 { top: 67%; left: 61%; }
+
+    footer {
+        font-size: 11px; /* Justér fontstørrelse yderligere for meget små skærme */
+    }
+    footer .footer-container {
+        gap: 60px; /* Reducér mellemrummet yderligere */
+        padding: 0px; /* Mindre padding for mobil */
+    }
+    footer .footer-info {
+        gap: 2px; /* Tættere mellemrum mellem infoelementer */
+    }
+}
+
+@media (max-width: 576px) {
+    
+    .navbar {
+        display: none;
+    }
+
+    header .menu-icon {
+        display: block; /* Vis menu-ikonet */
+        margin: 40px;
+        width: 30px;
+    }
+    
+    header .logo {
+        max-width: 90px;
+    }
+
+    .navbar ul li a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    header .login button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+    
+    .map-container {
+        width: 90%; /* Kortet fylder hele skærmen */
+        padding: 10px; /* Mindre padding */
+    }
+    
+    .point {
+        width: 0.75rem; /* Mindre punkter på skærme under 576px */
+        height: 0.75rem;
+    }
+
+    .popup {
+        height: 17%;
+        width: 18%;
+        font-size: 0.4rem;
+    }
+
+    .popup-link {
+        font-size: 0.4rem; /* Mindre font på meget små skærme */
+        padding: 0.2rem 0.4rem;
+    }
+
+    .close {
+        cursor: pointer;
+        display: inline-block;
+        width: 10px; /* Juster størrelse af luk-knappen */
+        height: 10px;
+        background-image: url('../images/Close.png'); /* Sørg for at angive korrekt sti til billedet */
+        background-size: cover; /* Sørger for, at billedet fylder knappen */
+        background-repeat: no-repeat;
+        margin-top: 10px;
+        position: absolute;
+        top: 1px;
+        right: 1px;
+    }
+    
+    .close:hover {
+        opacity: 0.7; /* Giver en let effekt ved hover */
+    }
+
+    /* Etage 0 */
+    #bar03-Etage0 { top: 80%; left: 47%; }
+    #deli02-Etage0 { top: 68%; left: 51%; }
+    #merchandise-Etage0 { top: 85%; left: 56%; }
+    #eventhall-Etage0 { top: 47%; left: 51%; }
+    #menWC1-Etage0 { top: 57%; left: 27%; }
+    #menWC2-Etage0 { top: 57%; left: 76%; }
+    #womenWC1-Etage0 { top: 63%; left: 33%; }
+    #womenWC2-Etage0 { top: 63%; left: 71%; }
+    #vip1-Etage0 { top: 76%; left: 25%; }
+    #vip2-Etage0 { top: 66%; left: 77%; }
+
+    /* Etage 1 */
+    #bar13-Etage1 { top: 68%; left: 58%; }
+    #bar11-Etage1 { top: 32%; left: 76%; }
+    #bar16-Etage1 { top: 32%; left: 26%; }
+    #deli14-Etage1 { top: 68%; left: 42%; }
+    #deli12-Etage1 { top: 47%; left: 76%; }
+    #deli15-Etage1 { top: 47%; left: 26%; }
+    #merchandise-Etage1 { top: 63%; left: 30%; }
+    #eventhall-Etage1 { top: 47%; left: 50%; }
+    #menWC1-Etage1 { top: 25%; left: 76%; }
+    #menWC2-Etage1 { top: 55%; left: 76%; }
+    #menWC3-Etage1 { top: 39%; left: 26%; }
+    #womenWC1-Etage1 { top: 39%; left: 76%; }
+    #womenWC2-Etage1 { top: 25%; left: 26%; }
+    #womenWC3-Etage1 { top: 55%; left: 26%; }
+    #garderobe-Etage1 { top: 63%; left: 70%; }
+
+    /* Etage 3 */
+    #bar35-Etage3 { top: 47%; left: 26%; }
+    #bar33-Etage3 { top: 69%; left: 50%; }
+    #bar31-Etage3 { top: 47%; left: 76%; }
+    #eventhall-Etage3 { top: 47%; left: 50%; }
+    #menWC1-Etage3 { top: 32%; left: 76%; }
+    #menWC2-Etage3 { top: 55%; left: 76%; }
+    #menWC3-Etage3 { top: 39%; left: 26%; }
+    #menWC4-Etage3 { top: 68%; left: 39%; }
+    #womenWC1-Etage3 { top: 39%; left: 76%; }
+    #womenWC2-Etage3 { top: 32%; left: 26%; }
+    #womenWC3-Etage3 { top: 55%; left: 26%; }
+    #womenWC4-Etage3 { top: 68%; left: 62%; }
+
+    footer {
+        font-size: 10px; /* Justér fontstørrelse yderligere for meget små skærme */
+    }
+    footer .footer-container {
+        gap: 50px; /* Reducér mellemrummet yderligere */
+        padding: 0px; /* Mindre padding for mobil */
+    }
+    footer .footer-info {
+        gap: 2px; /* Tættere mellemrum mellem infoelementer */
+    }
+}

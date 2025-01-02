@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Arena</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="../css/service.css">
+    <script src="../js/service.js" defer></script>
+</head>
+<body>
+    <header> 
+        <a href="home.html">
+            <img src="../images/Logo.png" alt="Royal Arena Logo" class="logo">
+        </a>
+        <!-- Menu-billede, der vises på små skærme -->
+        <img src="../images/Menu.png" alt="Menu" class="menu-icon" id="menu-icon" onclick="toggleMenu()">
+        <nav class="navbar">
+            <ul>
+                <li class="dropdown">
+                    <a href="#" id="map-toggle">Kort</a>
+                    <ul class="dropdown-menu" id="map-menu">
+                        <li><a href="floor0.html">Etage 0</a></li>
+                        <li><a href="floor1.html">Etage 1</a></li>
+                        <li><a href="floor3.html">Etage 3</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" id="overview-toggle">Oversigt</a>
+                    <ul class="dropdown-menu" id="overview-menu">
+                        <li><a href="bar.html">Bar</a></li>
+                        <li><a href="deli.html">Deli</a></li>
+                        <li><a href="eventhall.html">Arenaen</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" id="service-toggle">Service</a>
+                    <ul class="dropdown-menu" id="service-menu">
+                        <li><a href="order.html">Ordre</a></li>
+                        <li><a href="cart.html">Kurv</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" id="worker-toggle">Medarbejder?</a>
+                    <ul class="dropdown-menu" id="worker-menu">
+                        <li><a href="login.html">Log ind</a></li>
+                        <li><a href="product.html">Tilføj vare</a></li>
+                        <li><a href="view.html">Bestillinger</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Slide menu container (hidden by default) -->
+    <div id="slide-menu">
+        <img 
+            src="../images/Close.png" 
+            alt="Close menu" 
+            id="close-btn"
+            onclick="toggleMenu()" />
+        <ul>
+            <li class="slide-dropdown">
+                <a href="#" id="slide-map-toggle">Kort</a>
+                <ul class="slide-dropdown-menu" id="slide-map-menu">
+                    <li><a href="floor0.html">Etage 0</a></li>
+                    <li><a href="floor1.html">Etage 1</a></li>
+                    <li><a href="floor3.html">Etage 3</a></li>
+                </ul>
+            </li>
+            <li class="slide-dropdown">
+                <a href="#" id="slide-overview-toggle">Oversigt</a>
+                <ul class="slide-dropdown-menu" id="slide-overview-menu">
+                    <li><a href="bar.html">Bar</a></li>
+                    <li><a href="deli.html">Deli</a></li>
+                    <li><a href="eventhall.html">Arenaen</a></li>
+                </ul>
+            </li>
+            <li class="slide-dropdown">
+                <a href="#" id="slide-service-toggle">Service</a>
+                <ul class="slide-dropdown-menu" id="slide-service-menu">
+                    <li><a href="order.html">Ordre</a></li>
+                    <li><a href="cart.html">Kurv</a></li>
+                </ul>
+            </li>
+            <li class="slide-dropdown">
+                <a href="#" id="slide-worker-toggle">Medarbejder?</a>
+                <ul class="slide-dropdown-menu" id="slide-worker-menu">
+                    <li><a href="login.html">Log ind</a></li>
+                    <li><a href="product.html">Tilføj vare</a></li>
+                    <li><a href="view.html">Bestillinger</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div><br><br>
+
+    
+    <section class="container order-intro">
+        <div class="info order">
+            <h1>Få din mad og drikke hurtigt!</h1>
+            <p>
+                Bestil nemt fra vores menu og få din mad og drikke serveret på ingen tid. Vælg mellem vores udvalg af velsmagende retter, 
+                kolde sodavand og friske øl. Det er hurtigt, enkelt og designet til at sikre, at du kan nyde din bestilling uden ventetid. 
+                Klik på dine favoritter, og lad os klare resten!
+            </p>
+        </div>
+    </section><br><br>
+
+    <div class="container">
+        <!-- Mad sektion -->
+        <div class="section">
+            <h3>Mad</h3>
+            <div class="item-list">
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Kartoffel Pizza</h4>
+                        <p class="price">DKK 65,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Margherita Pizza</h4>
+                        <p class="price">DKK 70,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Salami Pizza</h4>
+                        <p class="price">DKK 60,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Bresaola Pizza</h4>
+                        <p class="price">DKK 75,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Spicy Teriyaki Hotdog</h4>
+                        <p class="price">DKK 45,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Spicy Lobster Roll</h4>
+                        <p class="price">DKK 90,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Fransk Hotdog med Dressing</h4>
+                        <p class="price">DKK 35,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Fransk Hotdog med Ketchup</h4>
+                        <p class="price">DKK 35,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Fransk Hotdog med Blandet</h4>
+                        <p class="price">DKK 35,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Fransk Hotdog uden Noget</h4>
+                        <p class="price">DKK 25,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <!-- Flere madmuligheder kan tilføjes her -->
+            </div>
+        </div><br><br><br><br>
+    
+        <!-- Drikke sektion -->
+        <div class="section">
+            <h3>Drikke</h3>
+            <div class="item-list">
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Royal Økologisk Pilsner</h4>
+                        <p class="price">DKK 50,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Nørrebro Bryghus Bombay IPA</h4>
+                        <p class="price">DKK 55,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Nørrebro Bryghus Brown Ale</h4>
+                        <p class="price">DKK 60,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Heineken 0.0</h4>
+                        <p class="price">DKK 45,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Glas Hvidvin</h4>
+                        <p class="price">DKK 80,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Glas Rødvin</h4>
+                        <p class="price">DKK 80,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Glas Rose</h4>
+                        <p class="price">DKK 75,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Pepsi</h4>
+                        <p class="price">DKK 30,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Pepsi Max</h4>
+                        <p class="price">DKK 30,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Faxe Kondi</h4>
+                        <p class="price">DKK 25,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-info">
+                        <h4>Miranda</h4>
+                        <p class="price">DKK 20,00</p>
+                    </div>
+                    <div class="item-controls">
+                        <button class="btn btn-secondary minus-btn">-</button>
+                        <span class="item-count">0</span>
+                        <button class="btn btn-secondary plus-btn">+</button>
+                    </div>
+                </div>
+                <!-- Flere drikkevarer kan tilføjes her -->
+            </div>
+        </div>
+    </div><br><br><br><br>
+
+    <section class="container order-details">
+        <h2>Indtast dine detaljer for bestillingen</h2>
+        <form id="orderForm">
+            <div class="form-group">
+                <label for="fullName">Fuldt Navn:</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Indtast dit fulde navn" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="pickupLocation">Hentested:</label>
+                <select id="pickupLocation" name="pickupLocation" required>
+                    <option value="" disabled selected>Vælg en bod</option>
+                    <option value="0.2">Bod 0.2</option>
+                    <option value="1.2">Bod 1.2</option>
+                    <option value="1.4">Bod 1.4</option>
+                    <option value="1.5">Bod 1.5</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label for="pickupTime">Tidspunkt for afhentning:</label>
+                <input type="time" id="pickupTime" name="pickupTime" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="orderNote">Kommentarer (fx allergi):</label>
+                <textarea id="orderNote" name="orderNote" placeholder="Skriv eventuelle kommentarer her..."></textarea>
+            </div>
+    
+            <div class="form-buttons">
+                <button type="reset" id="cancelButton" class="btn cancel-btn">Annuller</button>
+                <button type="submit" id="confirmButton" class="btn confirm-btn">Bekræft</button>
+            </div>
+        </form>
+    </section><br><br>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p><strong>Lokation:</strong></p>
+                <p><span style="font-weight: bold;">Adresse:</span> Hannemanns Allé 18-20</p>
+                <p><span style="font-weight: bold;">By:</span> København S</p>
+                <p><span style="font-weight: bold;">Land:</span> Danmark</p>
+            </div>
+            <div class="footer-info">
+                <p><strong>Kontaktinformation:</strong></p>
+                <p><span style="font-weight: bold;">Telefon:</span> +45 12 34 56 78</p>
+                <p><span style="font-weight: bold;">Email:</span> <a href="mailto:info@royalarena.dk">info@royalarena.dk</a></p>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <div>Copyright © 2024 Royal arena - all rights reserved</div>
+        </div>    
+    </footer>
+</body>
+
+</html>

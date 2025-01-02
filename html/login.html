@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Arena</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="../css/worker.css">
+    <script src="../js/worker.js" defer></script>
+</head>
+<body>
+    <header> 
+        <a href="home.html">
+            <img src="../images/Logo.png" alt="Royal Arena Logo" class="logo">
+        </a>
+        <!-- Menu-billede, der vises på små skærme -->
+        <img src="../images/Menu.png" alt="Menu" class="menu-icon" id="menu-icon" onclick="toggleMenu()">
+        <nav class="navbar">
+            <ul>
+                <li class="dropdown">
+                    <a href="#" id="map-toggle">Kort</a>
+                    <ul class="dropdown-menu" id="map-menu">
+                        <li><a href="floor0.html">Etage 0</a></li>
+                        <li><a href="floor1.html">Etage 1</a></li>
+                        <li><a href="floor3.html">Etage 3</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" id="overview-toggle">Oversigt</a>
+                    <ul class="dropdown-menu" id="overview-menu">
+                        <li><a href="bar.html">Bar</a></li>
+                        <li><a href="deli.html">Deli</a></li>
+                        <li><a href="eventhall.html">Arenaen</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" id="service-toggle">Service</a>
+                    <ul class="dropdown-menu" id="service-menu">
+                        <li><a href="order.html">Ordre</a></li>
+                        <li><a href="cart.html">Kurv</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" id="worker-toggle">Medarbejder?</a>
+                    <ul class="dropdown-menu" id="worker-menu">
+                        <li><a href="login.html">Log ind</a></li>
+                        <li><a href="product.html">Tilføj vare</a></li>
+                        <li><a href="view.html">Bestillinger</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header><br><br><br>
+
+    <!-- Slide menu container (hidden by default) -->
+    <div id="slide-menu">
+        <img 
+            src="../images/Close.png" 
+            alt="Close menu" 
+            id="close-btn"
+            onclick="toggleMenu()" />
+        <ul>
+            <li class="slide-dropdown">
+                <a href="#" id="slide-map-toggle">Kort</a>
+                <ul class="slide-dropdown-menu" id="slide-map-menu">
+                    <li><a href="floor0.html">Etage 0</a></li>
+                    <li><a href="floor1.html">Etage 1</a></li>
+                    <li><a href="floor3.html">Etage 3</a></li>
+                </ul>
+            </li>
+            <li class="slide-dropdown">
+                <a href="#" id="slide-overview-toggle">Oversigt</a>
+                <ul class="slide-dropdown-menu" id="slide-overview-menu">
+                    <li><a href="bar.html">Bar</a></li>
+                    <li><a href="deli.html">Deli</a></li>
+                    <li><a href="eventhall.html">Arenaen</a></li>
+                </ul>
+            </li>
+            <li class="slide-dropdown">
+                <a href="#" id="slide-service-toggle">Service</a>
+                <ul class="slide-dropdown-menu" id="slide-service-menu">
+                    <li><a href="order.html">Ordre</a></li>
+                    <li><a href="cart.html">Kurv</a></li>
+                </ul>
+            </li>
+            <li class="slide-dropdown">
+                <a href="#" id="slide-worker-toggle">Medarbejder?</a>
+                <ul class="slide-dropdown-menu" id="slide-worker-menu">
+                    <li><a href="login.html">Log ind</a></li>
+                    <li><a href="product.html">Tilføj vare</a></li>
+                    <li><a href="view.html">Bestillinger</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <main class="login-container">
+        <h1>Log ind</h1>
+        <form action="/login" method="POST" class="login-form">
+            <div class="form-group">
+                <label for="username">Brugernavn:</label>
+                <input type="text" id="username" name="username" required class="form-control" placeholder="Dit navn?">
+            </div>
+            <div class="form-group">
+                <label for="password">Kodeord:</label>
+                <input type="password" id="password" name="password" required class="form-control" placeholder="Vælg en stærk kode">
+            </div>
+            <button type="submit" class="btn btn-primary">Log ind</button>
+        </form>
+    </main><br><br><br>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p><strong>Lokation:</strong></p>
+                <p><span style="font-weight: bold;">Adresse:</span> Hannemanns Allé 18-20</p>
+                <p><span style="font-weight: bold;">By:</span> København S</p>
+                <p><span style="font-weight: bold;">Land:</span> Danmark</p>
+            </div>
+            <div class="footer-info">
+                <p><strong>Kontaktinformation:</strong></p>
+                <p><span style="font-weight: bold;">Telefon:</span> +45 12 34 56 78</p>
+                <p><span style="font-weight: bold;">Email:</span> <a href="mailto:info@royalarena.dk">info@royalarena.dk</a></p>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <div>Copyright © 2024 Royal arena - all rights reserved</div>
+        </div>    
+    </footer>
+</body>
+
+</html>
